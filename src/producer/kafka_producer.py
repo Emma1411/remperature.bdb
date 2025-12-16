@@ -1,33 +1,46 @@
-from kafka import KafkaProducer
-import json
-import time
-from src.sensor.temperature_sensor import TemperatureSensor
+import csv
+import os
 
-# Instanciation du producer Kafka
-producer = KafkaProducer(
-    bootstrap_servers='localhost:9092',  # adresse de ton broker Kafka
-    value_serializer=lambda v: json.dumps(v).encode('utf-8')  # sérialisation JSON
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.dirname(__file__)
+    )
 )
 
-# Instanciation du capteur
-sensor = TemperatureSensor()
+DATA_DIR = os.path.join(BASE_DIR, "temp", "data")
 
-# Nom du topic Kafka
-topic = 'temperature_topic'
+TEMP_COLUMNS = [
+    "front_left_c",
+    "front_right_c",
+    "back_left_c",
+    "back_right_c",
+]
 
-def send_temperature(interval=10):
 
-    while True:
-        # Lecture de la température
-        value = sensor.read_value()
-        data = {"temperature": value, "timestamp": time.time()}
+def load_temperatures():
+    data = []
 
-        # Envoi de la valeur dans Kafka
-        producer.send(topic, value=data)
-        print(f"[Producer] Température envoyée : {value}°C")
+    for filename in os.listdir(DATA_DIR):
+        if filename.endswith(".csv"):
+            filepath = os.path.join(DATA_DIR, filename)
 
-        time.sleep(interval)  # pause entre chaque lecture
+            with open(filepath, newline="", encoding="utf-8") as csvfile:
+                reader = csv.DictReader(csvfile)
 
-# Point d’entrée si on exécute ce fichier directement
+                for row in reader:
+                    entry = {
+                        "date": row["date"],
+                        "front_left_c": float(row["front_left_c"]),
+                        "front_right_c": float(row["front_right_c"]),
+                        "back_left_c": float(row["back_left_c"]),
+                        "back_right_c": float(row["back_right_c"]),
+                    }
+                    data.append(entry)
+
+    return data
+
+
 if __name__ == "__main__":
-    send_temperature()
+    temps = load_temperatures()
+    print(f"{len(temps)} températures chargées")
+    print(temps[:10])
