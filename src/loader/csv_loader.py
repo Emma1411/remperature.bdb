@@ -33,9 +33,3 @@ def load_temperatures():
                     data.append(entry)
 
     return data
-
-#dhdhdjkdkddd
-if __name__ == "__main__":
-    temps = load_temperatures()
-    print(f"{len(temps)} températures chargées")
-    print(temps[:10])

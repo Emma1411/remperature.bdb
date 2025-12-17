@@ -1,46 +1,17 @@
-import csv
-import os
-
-BASE_DIR = os.path.dirname(
-    os.path.dirname(
-        os.path.dirname(__file__)
-    )
-)
-
-DATA_DIR = os.path.join(BASE_DIR, "temp", "data")
-
-TEMP_COLUMNS = [
-    "front_left_c",
-    "front_right_c",
-    "back_left_c",
-    "back_right_c",
-]
+from kafka import KafkaProducer
+import json
+from src.loader.csv_loader import load_temperatures
 
 
-def load_temperatures():
-    data = []
-
-    for filename in os.listdir(DATA_DIR):
-        if filename.endswith(".csv"):
-            filepath = os.path.join(DATA_DIR, filename)
-
-            with open(filepath, newline="", encoding="utf-8") as csvfile:
-                reader = csv.DictReader(csvfile)
-
-                for row in reader:
-                    entry = {
-                        "date": row["date"],
-                        "front_left_c": float(row["front_left_c"]),
-                        "front_right_c": float(row["front_right_c"]),
-                        "back_left_c": float(row["back_left_c"]),
-                        "back_right_c": float(row["back_right_c"]),
-                    }
-                    data.append(entry)
-
-    return data
-
-
-if __name__ == "__main__":
-    temps = load_temperatures()
-    print(f"{len(temps)} températures chargées")
-    print(temps[:10])
+def write_data():
+    producer = KafkaProducer(bootstrap_servers='localhost:9092',
+    value_serializer = lambda x: json.dumps(x).encode('utf-8')
+                             )
+    TOPIC = 'TEMPERATURE_CAPTEUR'
+    while True:
+         for line in load_temperatures.data:
+           message = line.strip()
+           producer.send(TOPIC, line)
+           print(f"envoyer -{message}")
+           producer.flush()
+           producer.close()
