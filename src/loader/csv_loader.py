@@ -34,7 +34,7 @@ def load_temperatures():
 
     return data
 
-
+#dhdhdjkdkddd
 if __name__ == "__main__":
     temps = load_temperatures()
     print(f"{len(temps)} températures chargées")
