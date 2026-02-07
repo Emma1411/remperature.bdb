@@ -4,9 +4,10 @@ import time
 from src.loader.csv_loader import watch_for_new_files
 
 producer = KafkaProducer(
-    bootstrap_servers='kafka:9092',
-    value_serializer=lambda v: json.dumps(v).encode('utf-8')
+    bootstrap_servers="localhost:9092",
+    value_serializer=lambda v: json.dumps(v).encode("utf-8")
 )
+
 
 def format_message(entry):
     return {
