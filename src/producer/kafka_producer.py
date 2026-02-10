@@ -4,8 +4,12 @@ import time
 from src.loader.csv_loader import watch_for_new_files
 
 producer = KafkaProducer(
-    bootstrap_servers="localhost:9092",
-    value_serializer=lambda v: json.dumps(v).encode("utf-8")
+    bootstrap_servers="kafka:9092",
+    value_serializer=lambda v: json.dumps(v).encode("utf-8"),
+    api_version=(3, 5, 0),          # ← AJOUTE ÇA ! Force la version Kafka 3.5 (ou adapte à ta version exacte)
+    retries=5,                      # ← Bonus : plus de retries
+    request_timeout_ms=30000,       # ← Timeout plus long pour metadata fetch
+    connections_max_idle_ms=60000
 )
 
 
