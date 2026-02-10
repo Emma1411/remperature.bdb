@@ -4,7 +4,6 @@ from pyspark.sql.types import StructType, StructField, StringType, FloatType
 import happybase
 
 
-# Schema correspondant à ce que tu envoies dans le producer
 schema = StructType([
     StructField("timestamp", StringType(), True),
     StructField("temperature", StructType([
@@ -22,15 +21,16 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 spark.sparkContext.setLogLevel("WARN")
-
 df = spark.readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "kafka:9092") \
     .option("subscribe", "temperature_topic") \
     .option("startingOffsets", "earliest") \
+    .option("failOnDataLoss", "false") \
+    .option("kafka.metadata.max.age.ms", "10000") \
     .load()
 
-# Extraire et "aplatir" le JSON
+
 parsed_df = df.select(
     from_json(col("value").cast("string"), schema).alias("data")
 ).select(
@@ -47,7 +47,6 @@ def write_batch_to_hbase(batch_df, batch_id):
     if batch_df.count() == 0:
         return
 
-    # On collecte en mémoire (petits batches → ok pour PoC)
     rows = batch_df.collect()
 
     connection = happybase.Connection(host='hbase', port=9090)
