@@ -68,12 +68,20 @@ services:
       - "2181:2181"
   kafka:
     image: wurstmeister/kafka
-    container_name: kafka
+    container_name: kafka   # ajoute si absent
     ports:
       - "9092:9092"
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: localhost
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_CREATE_TOPICS: "temperature_topic:1:1"
+      # Optionnel mais utile :
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+    depends_on:
+      - zookeeper
 
   postgres:
     image: postgres:13
@@ -157,6 +165,51 @@ services:
       timeout: 10s
       retries: 5
     restart: always
+
+
+  producer:
+    build:
+      context: .
+      dockerfile: src/producer/Dockerfile
+    container_name: producer
+    depends_on:
+      - kafka
+    networks:
+      - default
+
+  consumer:
+      build:
+        context: .
+        dockerfile: src/consumer/Dockerfile
+      container_name: consumer
+      depends_on:
+        - kafka
+      networks:
+        - default
+
+  spark:
+      build:
+        context: .
+        dockerfile: src/spark/Dockerfile
+      container_name: spark
+      depends_on:
+        - kafka
+        - hbase
+      networks:
+        - default
+
+  hbase:
+    image: harisekhon/hbase:latest
+    container_name: hbase
+    ports:
+      - "16010:16010"
+    command: master
+    depends_on:
+      - zookeeper
+
+
+
+
 
 volumes:
   postgres-db-volume:

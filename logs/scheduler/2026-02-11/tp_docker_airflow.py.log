@@ -1,0 +1,161 @@
+[2026-02-11T00:00:17.479+0000] {processor.py:161} INFO - Started process (PID=6346) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:00:17.480+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:00:17.483+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:00:17.482+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:00:17.499+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:00:17.608+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:00:17.607+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:00:17.619+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:00:17.619+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:00:17.641+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.167 seconds
+[2026-02-11T00:00:47.832+0000] {processor.py:161} INFO - Started process (PID=6400) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:00:47.833+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:00:47.835+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:00:47.834+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:00:47.848+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:00:47.864+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:00:47.864+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:00:47.877+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:00:47.877+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:00:47.911+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.086 seconds
+[2026-02-11T00:01:18.134+0000] {processor.py:161} INFO - Started process (PID=6454) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:01:18.135+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:01:18.137+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:01:18.136+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:01:18.149+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:01:18.168+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:01:18.168+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:01:18.181+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:01:18.181+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:01:18.210+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.081 seconds
+[2026-02-11T00:01:48.685+0000] {processor.py:161} INFO - Started process (PID=6508) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:01:48.686+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:01:48.688+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:01:48.687+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:01:48.701+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:01:48.719+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:01:48.719+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:01:48.732+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:01:48.731+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:01:48.754+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.076 seconds
+[2026-02-11T00:02:18.894+0000] {processor.py:161} INFO - Started process (PID=6562) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:02:18.895+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:02:18.896+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:02:18.896+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:02:18.909+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:02:18.926+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:02:18.926+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:02:18.940+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:02:18.940+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:02:18.963+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.076 seconds
+[2026-02-11T00:02:49.196+0000] {processor.py:161} INFO - Started process (PID=6616) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:02:49.197+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:02:49.198+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:02:49.198+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:02:49.214+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:02:49.233+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:02:49.233+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:02:49.248+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:02:49.248+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:02:49.273+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.084 seconds
+[2026-02-11T00:03:19.498+0000] {processor.py:161} INFO - Started process (PID=6670) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:03:19.501+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:03:19.504+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:03:19.504+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:03:19.531+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:03:19.557+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:03:19.556+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:03:19.571+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:03:19.571+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:03:19.606+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.115 seconds
+[2026-02-11T00:03:49.794+0000] {processor.py:161} INFO - Started process (PID=6724) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:03:49.795+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:03:49.797+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:03:49.797+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:03:49.809+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:03:49.827+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:03:49.827+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:03:49.841+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:03:49.841+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:03:49.872+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.084 seconds
+[2026-02-11T00:04:20.110+0000] {processor.py:161} INFO - Started process (PID=6778) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:04:20.111+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:04:20.113+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:04:20.113+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:04:20.126+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:04:20.145+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:04:20.145+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:04:20.159+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:04:20.159+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:04:20.181+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.077 seconds
+[2026-02-11T00:04:50.395+0000] {processor.py:161} INFO - Started process (PID=6832) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:04:50.396+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:04:50.400+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:04:50.399+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:04:50.421+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:04:50.456+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:04:50.456+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:04:50.476+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:04:50.476+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:04:50.505+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.119 seconds
+[2026-02-11T00:05:20.588+0000] {processor.py:161} INFO - Started process (PID=6886) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:05:20.589+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:05:20.593+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:05:20.593+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:05:20.610+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:05:20.638+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:05:20.637+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:05:20.655+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:05:20.655+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:05:20.687+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.106 seconds
+[2026-02-11T00:05:50.883+0000] {processor.py:161} INFO - Started process (PID=6940) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:05:50.885+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:05:50.886+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:05:50.886+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:05:50.900+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:05:50.919+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:05:50.919+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:05:50.934+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:05:50.934+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:05:50.963+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.086 seconds
+[2026-02-11T00:06:21.064+0000] {processor.py:161} INFO - Started process (PID=6994) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:06:21.065+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:06:21.066+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:06:21.066+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:06:21.079+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:06:21.097+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:06:21.097+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:06:21.110+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:06:21.109+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:06:21.135+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.078 seconds
+[2026-02-11T00:06:51.281+0000] {processor.py:161} INFO - Started process (PID=7048) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:06:51.282+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:06:51.284+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:06:51.284+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:06:51.297+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:06:51.314+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:06:51.314+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:06:51.326+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:06:51.326+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:06:51.349+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.074 seconds
+[2026-02-11T00:07:21.828+0000] {processor.py:161} INFO - Started process (PID=7102) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:07:21.828+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:07:21.830+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:07:21.830+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:07:21.845+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:07:21.863+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:07:21.863+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:07:21.875+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:07:21.875+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:07:21.897+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.076 seconds
+[2026-02-11T00:07:52.207+0000] {processor.py:161} INFO - Started process (PID=7156) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:07:52.208+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:07:52.210+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:07:52.210+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:07:52.224+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:07:52.242+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:07:52.241+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:07:52.254+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:07:52.254+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:07:52.277+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.076 seconds
+[2026-02-11T00:08:22.381+0000] {processor.py:161} INFO - Started process (PID=7210) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:08:22.382+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:08:22.386+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:08:22.385+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:08:22.404+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:08:22.422+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:08:22.422+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:08:22.436+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:08:22.435+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:08:22.460+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.087 seconds
+[2026-02-11T00:08:52.657+0000] {processor.py:161} INFO - Started process (PID=7264) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:08:52.658+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:08:52.661+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:08:52.660+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:08:52.673+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:08:52.703+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:08:52.702+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:08:52.718+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:08:52.718+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:08:52.739+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.089 seconds
+[2026-02-11T00:09:22.866+0000] {processor.py:161} INFO - Started process (PID=7318) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:09:22.867+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:09:22.869+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:09:22.869+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:09:22.881+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:09:22.898+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:09:22.898+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:09:22.910+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:09:22.910+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:09:22.932+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.073 seconds
+[2026-02-11T00:09:53.177+0000] {processor.py:161} INFO - Started process (PID=7372) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:09:53.178+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:09:53.180+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:09:53.180+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:09:53.193+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:09:53.212+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:09:53.211+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:09:53.228+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:09:53.228+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:09:53.250+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.080 seconds
+[2026-02-11T00:10:23.385+0000] {processor.py:161} INFO - Started process (PID=7426) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:10:23.386+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:10:23.390+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:10:23.389+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:10:23.407+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:10:23.429+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:10:23.429+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:10:23.446+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:10:23.446+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:10:23.477+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.101 seconds
+[2026-02-11T00:10:53.879+0000] {processor.py:161} INFO - Started process (PID=7480) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:10:53.881+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:10:53.883+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:10:53.883+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:10:53.897+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:10:53.914+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:10:53.914+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:10:53.925+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:10:53.925+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:10:53.948+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.076 seconds
+[2026-02-11T00:11:24.064+0000] {processor.py:161} INFO - Started process (PID=7534) to work on /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:11:24.065+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/tp_docker_airflow.py for tasks to queue
+[2026-02-11T00:11:24.067+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:11:24.067+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:11:24.080+0000] {processor.py:840} INFO - DAG(s) 'tp_docker_airflow' retrieved from /opt/airflow/dags/tp_docker_airflow.py
+[2026-02-11T00:11:24.097+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:11:24.097+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-02-11T00:11:24.109+0000] {logging_mixin.py:188} INFO - [2026-02-11T00:11:24.109+0000] {dag.py:3954} INFO - Setting next_dagrun for tp_docker_airflow to None, run_after=None
+[2026-02-11T00:11:24.132+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/tp_docker_airflow.py took 0.074 seconds
