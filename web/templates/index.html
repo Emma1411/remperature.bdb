@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Temperature Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial; margin: 30px; background: #fafafa; }
+    .card { background: white; padding: 16px; border: 1px solid #eee; border-radius: 14px; margin-bottom: 18px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border-bottom: 1px solid #eee; padding: 10px; text-align: left; }
+    th { background: #f7f7f7; }
+  </style>
+</head>
+<body>
+
+  {% if warning %}
+  <div class="card" style="border-color:#f0c36d;background:#fff7e6;">
+    {{ warning }}
+  </div>
+  {% endif %}
+
+  <div class="card">
+    <h2>avg_temperature par jour (temperature_daily)</h2>
+    <canvas id="chart"></canvas>
+  </div>
+
+  <div class="card">
+    <h2>temperature_daily</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>date</th>
+          <th>count</th>
+          <th>avg_temperature</th>
+          <th>min_temperature</th>
+          <th>max_temperature</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in table %}
+        <tr>
+          <td>{{ r.date }}</td>
+          <td>{{ r.count }}</td>
+          <td>{{ "%.2f"|format(r.avg_temperature) }}</td>
+          <td>{{ "%.2f"|format(r.min_temperature) }}</td>
+          <td>{{ "%.2f"|format(r.max_temperature) }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+<script>
+  const labels = {{ labels|tojson }};
+  const avg = {{ avg|tojson }};
+
+  new Chart(document.getElementById('chart'), {
+    type: 'line',
+    data: { labels, datasets: [{ label: 'avg_temperature', data: avg }] },
+    options: { responsive: true }
+  });
+</script>
+
+</body>
+</html>

@@ -20,11 +20,8 @@ def read_csv_file(filepath):
             data.append(entry)
     return data
 
-
 def watch_for_new_files(poll_interval=2):
-
     processed_files = set()
-
     while True:
         for filename in os.listdir(DATA_DIR):
             if filename.endswith(".csv") and filename not in processed_files:
