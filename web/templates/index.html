@@ -1,173 +1,286 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8"/>
-  <title>Temperature Dashboard</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 30px; background: #f0f4f8; color: #333; }
-    .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 24px; }
-    h2 { color: #007bff; }
-    table { border-collapse: collapse; width: 100%; margin-top: 12px; }
-    th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-    th { background: #e9ecef; font-weight: bold; }
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-    .stat-box { background: #f8f9fa; padding: 16px; border-radius: 8px; text-align: center; }
-    .stat-box h3 { margin: 0; color: #6c757d; }
-    .stat-box p { font-size: 1.2em; font-weight: bold; color: #212529; }
-    .anomaly { background: #ffcccc; } /* Rouge pour anomalies */
-    button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
-    button:hover { background: #0056b3; }
-  </style>
+    <meta charset="utf-8"/>
+    <title>Temperature Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f0f4f8;
+            color: #333;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            color: #007bff;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 12px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #e9ecef;
+            font-weight: bold;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .stat-box {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-box h3 {
+            margin: 0;
+            color: #6c757d;
+        }
+
+        .stat-box p {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #212529;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
 <body>
 
-  {% if warning %}
-  <div class="card" style="border: 2px solid #ffc107; background: #fff3cd;">
-    <h2>Warning</h2>
-    {{ warning }}
-  </div>
-  {% endif %}
-
-  <!-- Stats Globales -->
-  <div class="card">
+<!-- Stats Globales -->
+<div class="card">
     <h2>Analyses Globales</h2>
     <div class="stats-grid">
-      <div class="stat-box"><h3>Mesures Totales</h3><p>{{ global_stats.total_measures|default('0') }}</p></div>
-      <div class="stat-box"><h3>Moyenne Globale</h3><p>{{ "%.2f"|format(global_stats.global_avg|default(0)) }}°C</p></div>
-      <div class="stat-box"><h3>Min Globale</h3><p>{{ "%.2f"|format(global_stats.global_min|default(0)) }}°C</p></div>
-      <div class="stat-box"><h3>Max Globale</h3><p>{{ "%.2f"|format(global_stats.global_max|default(0)) }}°C</p></div>
-      <div class="stat-box"><h3>Écart-Type</h3><p>{{ "%.2f"|format(global_stats.global_std|default(0)) }}</p></div>
+        <div class="stat-box"><h3>Mesures Totales</h3>
+            <p>{{ global_stats.total_measures|default('0') }}</p></div>
+        <div class="stat-box"><h3>Moyenne Globale</h3>
+            <p>{{ "%.2f"|format(global_stats.global_avg|default(0)) }}°C</p></div>
+        <div class="stat-box"><h3>Min Globale</h3>
+            <p>{{ "%.2f"|format(global_stats.global_min|default(0)) }}°C</p></div>
+        <div class="stat-box"><h3>Max Globale</h3>
+            <p>{{ "%.2f"|format(global_stats.global_max|default(0)) }}°C</p></div>
     </div>
-  </div>
+</div>
 
-
-  <!-- Comparaisons -->
-  <div class="card">
-    <h2>Comparaisons Pertinentes</h2>
-    <div class="stats-grid">
-      <div class="stat-box"><h3>Front vs Back (diff. moy.)</h3><p>{{ "%.2f"|format(comparisons.front_vs_back|default(0)) }}°C</p></div>
-      <div class="stat-box"><h3>Left vs Right (diff. moy.)</h3><p>{{ "%.2f"|format(comparisons.left_vs_right|default(0)) }}°C</p></div>
-    </div>
-    <p><em>Interprétation : Une diff positive signifie front/left plus chaud. Utile pour détecter déséquilibres.</em></p>
-  </div>
-
-  <!-- Anomalies -->
-  <div class="card">
-    <h2>Anomalies Détectées ( > 2 écarts-types )</h2>
-    {% if anomalies %}
-    <table>
-      <thead><tr><th>Date</th><th>Avg Temp</th><th>Front Left</th><th>Front Right</th><th>Back Left</th><th>Back Right</th></tr></thead>
-      <tbody>
-        {% for a in anomalies %}
-        <tr class="anomaly">
-          <td>{{ a.date }}</td>
-          <td>{{ "%.2f"|format(a.avg_temp) }}°C</td>
-          <td>{{ a.front_left_c }}°C</td>
-          <td>{{ a.front_right_c }}°C</td>
-          <td>{{ a.back_left_c }}°C</td>
-          <td>{{ a.back_right_c }}°C</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    {% else %}
-    <p>Aucune anomalie détectée — toutes mesures dans la norme.</p>
-    {% endif %}
-  </div>
-
-  <!-- Chart Raw Multi-Capteurs -->
-  <div class="card">
-    <h2>Tendances par Capteur (Raw Data)</h2>
+<!-- Chart Raw Multi-Capteurs -->
+<div class="card">
+    <h2>Tendances par Capteur</h2>
     <canvas id="rawChart" height="200"></canvas>
-  </div>
+</div>
 
-  <!-- Boxplot Distribution -->
-  <div class="card">
-    <h2>Distribution des Températures par Capteur</h2>
-    <canvas id="boxChart" height="200"></canvas>
-  </div>
 
-  <!-- Tableau Daily -->
-  <div class="card">
-    <h2>Données Aggregées (Daily)</h2>
-    <table>
-      <thead><tr><th>Date</th><th>Count</th><th>Avg Temp</th><th>Min Temp</th><th>Max Temp</th></tr></thead>
-      <tbody>
-        {% for r in table_daily %}
-        <tr>
-          <td>{{ r.date }}</td>
-          <td>{{ r.count }}</td>
-          <td>{{ "%.2f"|format(r.avg_temperature) }}°C</td>
-          <td>{{ "%.2f"|format(r.min_temperature) }}°C</td>
-          <td>{{ "%.2f"|format(r.max_temperature) }}°C</td>
+<!-- Tableau Raw (limité) -->
+<div class="card">
+    <h2>Données Brutes</h2>
+    <table id="rawTable">
+        <thead>
+        <tr style="padding-bottom: 2px">
+            <th>Date</th>
+            <th>Front Left</th>
+            <th>Front Right</th>
+            <th>Back Left</th>
+            <th>Back Right</th>
+            <th>Avg</th>
         </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Tableau Raw (limité) -->
-  <div class="card">
-    <h2>Données Brutes (Raw - Échantillon)</h2>
-    <table>
-      <thead><tr><th>Date</th><th>Front Left</th><th>Front Right</th><th>Back Left</th><th>Back Right</th><th>Avg</th></tr></thead>
-      <tbody>
+        </thead>
+        <tbody id="tableBody">
         {% for r in table_raw %}
         <tr>
-          <td>{{ r.date }}</td>
-          <td>{{ "%.2f"|format(r.front_left_c) }}°C</td>
-          <td>{{ "%.2f"|format(r.front_right_c) }}°C</td>
-          <td>{{ "%.2f"|format(r.back_left_c) }}°C</td>
-          <td>{{ "%.2f"|format(r.back_right_c) }}°C</td>
-          <td>{{ "%.2f"|format(r.avg_temp) }}°C</td>
+            <td>{{ r.date }}</td>
+            <td>{{ "%.2f"|format(r.front_left_c) }}°C</td>
+            <td>{{ "%.2f"|format(r.front_right_c) }}°C</td>
+            <td>{{ "%.2f"|format(r.back_left_c) }}°C</td>
+            <td>{{ "%.2f"|format(r.back_right_c) }}°C</td>
+            <td>{{ "%.2f"|format(r.avg_temp) }}°C</td>
         </tr>
         {% endfor %}
-      </tbody>
+        </tbody>
     </table>
-    <p>(Affichage limité à 100 lignes — utilise export pour tout)</p>
-  </div>
 
-  <!-- Boutons Export -->
-  <div class="card" style="text-align: center;">
-    <button onclick="window.location.href='/export/json'">Exporter JSON</button>
-    <!-- Pour CSV, ajoute une route similaire avec df_raw.to_csv() -->
-  </div>
+    <!-- Pagination + Infos -->
+    <div class="pagination"
+         style="padding: 5px; display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+        <button id="prevBtn" disabled>Précédent</button>
+        <span id="pageInfo">Page 1 / 1 – 0 lignes au total</span>
+        <button id="nextBtn">Suivant</button>
+    </div>
+
+</div>
+
 
 <script>
-  // Daily Chart
-  new Chart(document.getElementById('dailyChart'), {
-    type: 'line',
-    data: {
-      labels: {{ daily_labels|tojson }},
-      datasets: [{ label: 'Avg Temperature', data: {{ daily_avg|tojson }}, borderColor: '#007bff', fill: false }]
-    },
-    options: { responsive: true, scales: { y: { title: { display: true, text: '°C' } } } }
-  });
+    // Pagination pour la table raw
+    const itemsPerPage = 10;
+    let currentPage = 1;
 
-  // Raw Multi-Capteurs Chart
-  const rawLabels = {{ raw_labels|tojson }};
-  const rawDatasets = [
-    { label: 'Front Left', data: {{ raw_datasets.front_left|tojson }}, borderColor: '#28a745' },
-    { label: 'Front Right', data: {{ raw_datasets.front_right|tojson }}, borderColor: '#dc3545' },
-    { label: 'Back Left', data: {{ raw_datasets.back_left|tojson }}, borderColor: '#ffc107' },
-    { label: 'Back Right', data: {{ raw_datasets.back_right|tojson }}, borderColor: '#17a2b8' }
-  ];
-  new Chart(document.getElementById('rawChart'), {
-    type: 'line',
-    data: { labels: rawLabels, datasets: rawDatasets },
-    options: { responsive: true, scales: { y: { title: { display: true, text: '°C' } } } }
-  });
+    const tableBody = document.getElementById('tableBody');
+    const rows = tableBody.getElementsByTagName('tr');
+    const totalRows = rows.length;
+    const totalPages = Math.ceil(totalRows / itemsPerPage) || 1;
 
-  // Boxplot
-  new Chart(document.getElementById('boxChart'), {
-    type: 'boxplot',
-    data: {
-      labels: ['Front Left', 'Front Right', 'Back Left', 'Back Right'],
-      datasets: [{ label: 'Distribution', data: {{ box_data|tojson }}, backgroundColor: 'rgba(0,123,255,0.5)' }]
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const pageInfo = document.getElementById('pageInfo');
+
+    // Fonction d'affichage d'une page
+    function showPage(page) {
+        // Masquer toutes les lignes
+        for (let i = 0; i < totalRows; i++) {
+            rows[i].style.display = 'none';
+        }
+
+        // Afficher seulement les lignes de la page
+        const start = (page - 1) * itemsPerPage;
+        const end = Math.min(start + itemsPerPage, totalRows);
+
+        for (let i = start; i < end; i++) {
+            rows[i].style.display = '';
+        }
+
+        // Mise à jour infos
+        pageInfo.textContent = `Page ${page} / ${totalPages} – ${totalRows} lignes au total`;
+        prevBtn.disabled = (page === 1);
+        nextBtn.disabled = (page === totalPages || totalRows === 0);
+    }
+
+    // Événements boutons
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            showPage(currentPage);
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    });
+
+    // Affichage initial
+    if (totalRows > 0) {
+        showPage(currentPage);
+    } else {
+        pageInfo.textContent = 'Aucune donnée chargée';
+        prevBtn.disabled = true;
+        nextBtn.disabled = true;
+    }
+
+    // Charts (protégés contre undefined)
+    const rawLabels = {
+    {
+        raw_labels | tojson |
+    default
+        ('[]')
+    }
+    }
+    ;
+    const rawDatasets = [
+        {label: 'Front Left', data: {{raw_datasets.front_left |default([]) | tojson
+    }
     },
-    options: { responsive: true }
-  });
+    borderColor: '#28a745'
+    },
+    {
+        label: 'Front Right', data
+    :
+        {
+            {
+                raw_datasets.front_right |
+            default
+                ([]) | tojson
+            }
+        }
+    ,
+        borderColor: '#dc3545'
+    }
+    ,
+    {
+        label: 'Back Left', data
+    :
+        {
+            {
+                raw_datasets.back_left |
+            default
+                ([]) | tojson
+            }
+        }
+    ,
+        borderColor: '#ffc107'
+    }
+    ,
+    {
+        label: 'Back Right', data
+    :
+        {
+            {
+                raw_datasets.back_right |
+            default
+                ([]) | tojson
+            }
+        }
+    ,
+        borderColor: '#17a2b8'
+    }
+    ]
+    ;
+
+    new Chart(document.getElementById('rawChart'), {
+        type: 'line',
+        data: {labels: rawLabels, datasets: rawDatasets},
+        options: {responsive: true, scales: {y: {title: {display: true, text: '°C'}}}}
+    });
+
+    new Chart(document.getElementById('boxChart'), {
+        type: 'boxplot',
+        data: {
+            labels: ['Front Left', 'Front Right', 'Back Left', 'Back Right'],
+            datasets: [{label: 'Distribution', data: {{box_data |default([]) | tojson
+    }
+    },
+    backgroundColor: 'rgba(0,123,255,0.5)'
+    }]
+    },
+    options: {
+        responsive: true
+    }
+    })
+    ;
 </script>
 
 </body>
